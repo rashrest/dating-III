@@ -1,0 +1,15 @@
+{
+  "name": "sdev328/dating-III",
+  "description": "Dating website",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Raju Shrestha",
+      "email": "rshrestha9@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
