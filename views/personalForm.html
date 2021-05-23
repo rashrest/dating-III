@@ -1,0 +1,108 @@
+<!doctype html>
+<!--git hub link https://github.com/rashrest/dating-->
+
+<html lang="en">
+<head>
+
+    <title>Personal Information</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/personal.css">
+
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ @BASE }}">My Dating Website</a>
+
+    </nav>
+</header>
+
+
+<main class="container">
+    <!--form for collecting personal information-->
+    <form class="row" action="#" method="post">
+        <fieldset id="personalInformation" name="firstForm" class="form-group rounded-right col-8">
+            <legend>Personal Information</legend>
+            <hr>
+
+            <div class="form-group">
+                <label for="name">First Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ @names }}">
+            </div>
+
+            <check if="{{ isset(@errors['name']) }}">
+                <span class="err" style="color: red;">{{ @errors['name'] }}</span>
+            </check>
+
+
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lname" value="{{ @lnames }}">
+            </div>
+            <check if="{{ isset(@errors['lname']) }}">
+                <span class="err" style="color: red;" >{{ @errors['lname'] }}</span>
+            </check>
+
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" class="form-control" id="age" name="age" value="{{ @ages }}">
+            </div>
+
+            <check if="{{ isset(@errors['agee']) }}">
+                <span class="err" style="color: red;">{{ @errors['agee'] }}</span>
+            </check>
+
+            <div class="form-group">
+                <p>Gender</p>
+                <input type="radio" id="male" name="gender" value="male" >
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" value="{{ @phones }}">
+            </div>
+
+            <check if="{{ isset(@errors['phone']) }}">
+                <span class="err" style="color: red;">{{ @errors['phone'] }}</span>
+            </check>
+
+
+
+        </fieldset>
+
+        <aside class="col-4">
+            <div class="jumbotron">
+                <p><strong>Note: </strong> All information entered is proctected by our <a href="google.com">privacy policy.</a> Profile information can only be viewed by others with your permission.</p>
+            </div><br><br><br><br>
+            <input type="submit" class="btn btn-primary" id="next" value="Next >"/>
+        </aside>
+
+    </form>
+
+</main>
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+</html>
