@@ -33,9 +33,14 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input class="form-control" id="email" type="email" name="email">
+                    <input class="form-control" id="email" type="email" name="email" value="{{ @emails }}">
 
                 </div>
+
+                <check if="{{ isset(@errors['email']) }}">
+                    <span class="err" style="color: red;" >{{ @errors['email'] }}</span>
+                </check>
+
                 <div class="form-group">
                     <label for="state">State</label>
                     <input class="form-control no-spinners" id="state" type="text" name="state">
