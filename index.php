@@ -83,17 +83,34 @@ $f3->route('GET|POST /Personal',function ($f3){
 });
 
 ////define route to Profile page
-$f3->route('GET|POST /Profile',function (){
+$f3->route('GET|POST /Profile',function ($f3){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $_SESSION['email'] = $_POST['email'];
+
+
+        //data validation
+        if(validEmail($_POST['email'])){
+            $_SESSION['email'] = $_POST['email'];
+        }
+
+        else{
+            $f3-> set('errors["email"]', 'Please provide a valid email address.');
+        }
+
+
+
         $_SESSION['state'] = $_POST['state'];
         $_SESSION['seek'] = $_POST['seek'];
         $_SESSION['bio'] = $_POST['bio'];
-        header('location: Interest');
+
+        if(empty($f3->get('errors'))){
+            header('location: Interest');
+        }
+
     }
 
+    $f3->set('emails',$_POST['email']);
     //Display the personal information form
     $view = new Template();
     echo $view-> render('views/profile.html');
@@ -102,10 +119,29 @@ $f3->route('GET|POST /Profile',function (){
 ////define route to interest page
 $f3->route('GET|POST /Interest',function (){
 
+    $indoorChoice=array();
+    $outdoorChoice=array();
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $_SESSION['indoor'] = implode(", ", $_POST['indoor']);
-        $_SESSION['outdoor'] = implode(", ", $_POST['outdoor']);
+        //check to see the options are valid
+        if(!empty($_POST['indoor'])){
+            $indoorChoice=$_POST['indoor'];
+
+            //if choices are valid
+            if(validIndoor($indoorChoice)){
+                $_SESSION['indoor'] = implode(", ", (array) $_POST['indoor']);
+            }
+        }
+
+        if(!empty($_POST['outdoor'])){
+            $outdoorChoice=$_POST['outdoor'];
+
+            //if choices are valid
+            if(validIndoor($outdoorChoice)){
+                $_SESSION['outdoor'] = implode(", ", (array) $_POST['outdoor']);
+            }
+        }
         header('location: Summary');
     }
 
