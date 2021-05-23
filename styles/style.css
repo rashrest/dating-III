@@ -1,0 +1,26 @@
+button{
+    display: block;
+    margin-left: 10rem;
+    margin-right: 5rem;
+    width: auto;
+    text-align: right!important;
+    float: right!important;
+}
+img{
+    border: 2px solid black;
+    border-radius: 11px;
+}
+body{
+
+}
+main{
+    margin: 3rem 5rem;
+
+}
+#next{
+    display: block;
+    margin-left: 10rem;
+    margin-right: 10rem;
+
+
+}

@@ -1,0 +1,11 @@
+main{
+    border: 1px solid silver;
+}
+
+#next{
+    /*position: relative;*/
+    /*bottom: 0!important;*/
+    /*right: 0!important;*/
+    text-align: right!important;
+    float: right!important;
+}
